@@ -68,6 +68,12 @@ function App() {
     }
   };
 
+  const resetGame = () => {
+    setBoard(Array(9).fill(null));
+    setTurn(PLAYERS.X);
+    setWinner(null);
+  };
+
   return (
     <main className='board'>
       <h1>Ta Te Ti</h1>
@@ -90,7 +96,7 @@ function App() {
             <h1>{winner === false ? 'EMPATE' : 'GANÓ: '}</h1>
             <header>{winner && <Square>{winner}</Square>}</header>
             <footer>
-              <button>Volver a jugar</button>
+              <button onClick={resetGame}>Volver a jugar</button>
             </footer>
           </div>
         </section>
